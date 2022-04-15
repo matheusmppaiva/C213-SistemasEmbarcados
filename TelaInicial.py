@@ -1,4 +1,14 @@
 from tkinter import *
+import funcaoTransf
+
+def clica_botao(maxPico, tempAcom, tol):
+
+    max_Pico = maxPico.get()
+    temp_Acom = tempAcom.get()
+    tolerancia = tol.get()
+
+    funcaoTransf.calculaFuncao(max_Pico, temp_Acom, tolerancia)
+
 
 def criaJanela():
 
@@ -6,6 +16,7 @@ def criaJanela():
 
     janela.title("Trabalho C213")
     janela.geometry("350x250")
+
     #Título
     text_header = Label(janela, text="Projeto – Planta de nível – Controlador PI")
     text_header.place(x = 0, y = 5, width = 350, height = 30)
@@ -29,8 +40,6 @@ def criaJanela():
     cxTxt_tolerancia.place(x = 150, y = 120, width = 120)
 
     #Criando botões
-    
+    Button(janela, text = "Executar", command = lambda: clica_botao(cxTxt_maxPico, cxTxt_tempAcom, cxTxt_tolerancia)).place(x=10, y=200)
     
     janela.mainloop()
-
-criaJanela()
